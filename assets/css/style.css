@@ -1,11 +1,15 @@
-.container{
-    width: 300px;
+.purple-container{
+    width: 550px;
     height: 300px;
-    color: purple;
-    padding: 20px;
+    text-align: center;
+    background: rgb(53, 1, 53);
+    position: absolute;
+    z-index: -1;
+    
+    
 }
 
 h1 {
     text-align: center;
-    color: purple;
+    color: rgb(53, 1, 53);
 }
