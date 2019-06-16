@@ -1,0 +1,11 @@
+.container{
+    width: 300px;
+    height: 300px;
+    color: purple;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: purple;
+}
