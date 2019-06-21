@@ -1,15 +1,26 @@
 #ptrivia{
-    width: 550px;
+    width: 85%;
     height: 300px;
     text-align: center;
     background: rgb(145, 5, 145);
-    position: absolute;
-    z-index: -1;
-    
+    margin: auto;
+    border-radius: 15px;
+
     
 }
 
 h1 {
     text-align: center;
     color: rgb(145, 5, 145);
+}
+
+
+button {
+
+    border-radius: 15px;
+}
+
+#timer{
+
+    color: whitesmoke;
 }

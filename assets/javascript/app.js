@@ -8,7 +8,15 @@ setInterval();
 var mins = 2;
 var secs = mins * 60;
 
+$(document).ready(function(){
+var timer = 120;
+var timerDIv = $("#count-down");
+timerDIv.html(`${timer}`);
+})
+
 function countdown() {
+    timer = 120;
+    timerDIv.html(``)
     setTimeout('decrement()', 60);
 }
 
@@ -108,11 +116,11 @@ if (randTrivia = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
     Reset(secs);
 }
 
-else (phobiaTrivia = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]) {
+/*else (phobiaTrivia = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]) {
     Reset(mins);
     Reset(secs);
 
-}
+}*/
 
 
 
