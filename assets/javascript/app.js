@@ -1,20 +1,45 @@
-
-//prerequisites
-getMinutes();
-getSeconds();
-setInterval();
-
 //variables and functions
-var mins = 2;
-var secs = mins * 60;
 
-$(document).ready(function(){
-var timer = 120;
-var timerDIv = $("#count-down");
-timerDIv.html(`${timer}`);
+$(document).ready(function () {
+    var timer = 120;
+    var timerDIv = $("#count-down");
+    timerDIv.html(`${timer}`);
 })
 
-function countdown() {
+function countDown() {
+    //set timer 
+    timer = 120;
+    //in not running set to true, clear the interval and start decrement function
+    if (!running) {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+        running = true;
+    }
+};
+function decrement() {
+    //counts timer down
+    timer--;
+    //adds to html
+    $(timerDIv).html(`${timer}`); {
+        // if time runs out, run stop function, show in html time ran out and add score to out of time
+        if (timer === 0) {
+            stop();
+            endTime++;
+            clean();
+            timedOut();
+            console.log("out of time!");
+        }
+    };
+};
+
+function clean() {
+
+    $("#")
+
+}
+
+
+/*function countdown() {
     timer = 120;
     timerDIv.html(``)
     setTimeout('decrement()', 60);
@@ -65,21 +90,48 @@ function getminutes() {
 function getseconds() {
     //take minutes remaining as seconds away from total seconds remaining
     return secs - Math.round(mins * 60);
-}
+}*/
 
 //array for trivia questions
+var questions =
+    [
+        {
+            question: "What is a pregnant goldfish called?", // A Twit
+            choices: ["A float", "A crank", "A tramp", "A twit"];
+            answer: 3
+        },
 
-var randTrivia = [];
-randTrivia[0] = "What is a pregnant goldfish called?"; // A Twit
-randTrivia[1] = "Whos is the legendary Benedictine monk whom invented champagne?"; //Dom Perignon
-randTrivia[2] = "This the largest fresh water lake in the world"; //Lake Superior
-randTrivia[3] = "What do you call someone who shoes horses"; //A Ferrier
-randTrivia[4] = "Who was the first actor to play James Bond in the movie series?"; //Sir Sean Connery
-randTrivia[5] = "What percent of an egg's weight is its shell?"; //12%
-randTrivia[6] = "This is antonym of the word 'synonym'"; //Antonym
-randTrivia[7] = "Prague is in which country?"; //Prague
-randTrivia[8] = "What is a lexicon?"; // A Dictionary
-randTrivia[9] = "This fighter has a career record of 49 wins ZERO losses."; //Rocky Marciano
+        {
+            question: "Whos is the legendary Benedictine monk whom invented champagne?"  //Dom Perignon
+            choices: ["Perrier Jouet", "Dom Perignon", "Armand De Brignac", "Louis Roederer"];
+            answer: 1
+        }
+        {
+
+            question: "This the largest fresh water lake in the world", //Lake Superior
+            choices: ["Lake Superior", "Lake Victoria", "Loch Ness", "Lake Bikal"]
+            answer: 0
+        }
+        {
+            question: "Who was the first actor to play James Bond in the movie series?" //Sir Sean Connery
+            choices: ["Roger Moore", "Daniel Craig", "Sean Connery", "Pierce Brosnan"]
+            answer: 2
+        }
+    ]
+        
+
+"What do you call someone who shoes horses"; //A Ferrier
+; //Sir Sean Connery
+"What percent of an egg's weight is its shell?"; //12%
+"This is antonym of the word 'synonym'"; //Antonym
+"What is melissaphobia?"; //The fear of bees
+"What is a lexicon?"; // A Dictionary
+"This fighter has a career record of 49 wins ZERO losses."; //Rocky Marciano
+]
+
+
+
+
 // phobia round
 var phobiaTrivia = [];
 phobiaTrivia[0] = "What is barophobia?"; // The fear of gravity
