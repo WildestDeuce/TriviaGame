@@ -1,99 +1,56 @@
 //variables and functions
 
 $(document).ready(function () {
-    var timer = 120;
+    var timer = 20;
     var timerDIv = $("#count-down");
     timerDIv.html(`${timer}`);
 })
+var running = false
+var intervalId;
+var endTime = 20
 
+$("#startbutton").on("click",countDown)
+
+
+    
+//call funtion countDown somwhere in code 
 function countDown() {
     //set timer 
-    timer = 120;
+    timer = 20;
     //in not running set to true, clear the interval and start decrement function
     if (!running) {
-        clearInterval(intervalId);
         intervalId = setInterval(decrement, 1000);
         running = true;
+        $("#count-down").text(timer)
     }
 };
 function decrement() {
     //counts timer down
     timer--;
     //adds to html
-    $(timerDIv).html(`${timer}`); {
+$("#count-down").text(timer); 
         // if time runs out, run stop function, show in html time ran out and add score to out of time
         if (timer === 0) {
-            stop();
+            //stop();
             endTime++;
-            clean();
-            timedOut();
+            clear();
+            //timedOut();
             console.log("out of time!");
         }
-    };
+    
 };
 
-function clean() {
+function clear() {
 
-    $("#")
-
+    $("#ptrivia").empty()
+    clearInterval(intervalId)
 }
 
+//for ()
+//questions [i].choices [questions [i].answer]'
 
-/*function countdown() {
-    timer = 120;
-    timerDIv.html(``)
-    setTimeout('decrement()', 60);
-}
-
-function decrement() {
-    if (document.getElementById) {
-        minutes = $("#minutes");
-        seconds = $("#seconds");
-    }
-
-    //if less than one minute remaining, display time in seconds
-    if (seconds < 60) {
-        seconds.value = secs;
-    }
-    //display minutes and seconds
-    else {
-        minutes.value = getminutes();
-        seconds.value = getseconds();
-    }
-    //when less than one minute change time red in color
-    if (mins < 1) {
-        minutes.style.color = "red";
-        seconds.style.color = "red";
-    }
-    //if seconds become 0 alert "time up"
-    if (secs = 0) {
-        alert("timeup");
-        minutes.value = 0;
-        seconds.value = 0;
-    }
-
-    //if seconds > 0 decrement timer
-
-    else {
-        secs--;
-        setTimeout('decrement()', 1000);
-    }
-}
-
-function getminutes() {
-    //divide minutes by 60, round down
-    mins = Math.floor(secs / 60);
-    return mins;
-
-}
-
-function getseconds() {
-    //take minutes remaining as seconds away from total seconds remaining
-    return secs - Math.round(mins * 60);
-}*/
-
-//array for trivia questions
-var questions =
+//every question in pink box of array .append to pink box
+/*var questions =
     [
         {
             question: "What is a pregnant goldfish called?", // A Twit
@@ -105,35 +62,62 @@ var questions =
             question: "Whos is the legendary Benedictine monk whom invented champagne?"  //Dom Perignon
             choices: ["Perrier Jouet", "Dom Perignon", "Armand De Brignac", "Louis Roederer"];
             answer: 1
-        }
+        },
         {
 
             question: "This the largest fresh water lake in the world", //Lake Superior
             choices: ["Lake Superior", "Lake Victoria", "Loch Ness", "Lake Bikal"]
             answer: 0
-        }
+        },
         {
             question: "Who was the first actor to play James Bond in the movie series?" //Sir Sean Connery
             choices: ["Roger Moore", "Daniel Craig", "Sean Connery", "Pierce Brosnan"]
             answer: 2
-        }
-    ]
-        
+        },
+        {
+            question: "What is a lexicon?" //A Dictionary
+            choices: ["A dictionary", "An hourglass", "A pocketwatch", "A boat"]
+            answer: 0
+        },
+        {    
+            question: "This fighter has a career record of 49 wins ZERO losses."; //Rocky Marciano
+            choices: ["Floyd Mayweather", "Muhammad Ali", "Rockey Marciano", "Sugar Ray Leonard"]
+            answer: 2
+        },
+        {
+            question: "What percent of an egg's weight is its shell?"; //12%
+            choices: ["9%", "10%", "11%", "12%"]
+            answer: 3
+        },
+        {
+            question: "What is melissaphobia?"; //The fear of bees
+            choices: ["Fear of clouds", "Fear of bees", "Fear of words", "Fear of fear"]
+            answer: 1
+        },    
+    
+        {
+            question: "Who was the first baseball player to have his jersey retired?" //Lou Gehrig 
+            choices: ["Mickey Mantle", "Babe Ruth", "Ted Williams", "Lou Gehrig"]
+            answer: 3
+        }    
+        {
+            qeustion: "This is the Greek God of dreams" //Morpheus
+            choices: ["Morpheus", "Demeter", "Dionysus", "Chiron"]
+            answer: 1
 
-"What do you call someone who shoes horses"; //A Ferrier
-; //Sir Sean Connery
-"What percent of an egg's weight is its shell?"; //12%
-"This is antonym of the word 'synonym'"; //Antonym
-"What is melissaphobia?"; //The fear of bees
-"What is a lexicon?"; // A Dictionary
-"This fighter has a career record of 49 wins ZERO losses."; //Rocky Marciano
-]
+        }
+
+
+        
+    ]
+
+
 
 
 
 
 // phobia round
-var phobiaTrivia = [];
+/*var phobiaTrivia = [];
 phobiaTrivia[0] = "What is barophobia?"; // The fear of gravity
 phobiaTrivia[1] = "What is pogonophobia?"; // The fear of beards
 phobiaTrivia[2] = "What is phobophobia?"; //The fear of cheese
@@ -143,15 +127,15 @@ phobiaTrivia[5] = "What is ablutophobia?"; //The fear of bathing
 phobiaTrivia[6] = "What is melissaphobia?"; //The fear of bees
 phobiaTrivia[7] = "What is automatonophobia?"; //The fear of vantriliquist dummies
 phobiaTrivia[8] = "What is cynophobia?"; //The fear of dogs
-phobiaTrivia[9] = "What is nyctophobia?"; //The fear of the dark
+phobiaTrivia[9] = "What is nyctophobia?"; //The fear of the dark*/
 
 //function for round one
 
 function randTrivia() {
     $("#button").on("click")
 
-    var roundOneTrivia = Math.floor(Math.random() * (randTrivia.length));
-    $("#ptrivia").text() = randTrivia[roundOneTrivia];
+    var roundOneTrivia = Math.floor(Math.random() * (questions.length));
+    $("#ptrivia").text() = questions[roundOneTrivia];
 }
 
 //function for round two
@@ -163,7 +147,7 @@ function phobiaTrivia() {
     $("#ptrivia").text() = phobiaTrivia[roundTwoTrivia];
 }
 
-if (randTrivia = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+/*if (randTrivia = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
     Reset(mins);
     Reset(secs);
 }
