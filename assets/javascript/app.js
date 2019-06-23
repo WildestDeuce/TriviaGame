@@ -33,7 +33,6 @@ function startQuiz() {
 };
 
 function decrement() {
-    console.log(">decrement")
     //counts timer down
     timer--;
     //adds to html
@@ -43,7 +42,6 @@ function decrement() {
         timeOut();
         nextQuestion();
     }
-    console.log("<decrement")
 };
 
 function nextQuestion() {
@@ -138,12 +136,18 @@ function paintChoice(qnum) {
     var choices = qArr[qnum].choices
     console.log(choices);
     for (var i = 0; i < choices.length; i++) {
-        var choice = choices [i];
-       var pChoice = $("<p>").html(choice);
+        var choice = choices[i];
+        var pChoice = $("<p>").html(choice);
         $("#ptrivia").append(pChoice);
+        $(".butn1").click(choice);
+        /*var buttonChoice= $('<input/>').attr({ type: 'button', name:'btn1', value:'a button' });
+        $("#ptrivia").append(buttonChoice);*/
     }
 }
 
+function paintAnswer() {
+
+}
 
 
 
