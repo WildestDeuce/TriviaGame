@@ -5,9 +5,7 @@
     background: rgb(145, 5, 145);
     margin: auto;
     border-radius: 15px;
-
-    
-}
+  }
 
 h1 {
     text-align: center;
@@ -16,11 +14,9 @@ h1 {
 
 
 button {
-
     border-radius: 15px;
 }
 
 #timer{
-
     color: whitesmoke;
 }
