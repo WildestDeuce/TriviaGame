@@ -7,6 +7,9 @@ var running = false
 var intervalId;
 var endTime = 3
 var questionNumber = 0;
+var correct = 0;
+var incorrect = 0;
+
 
 $(document).ready(main);
 function main() {
@@ -28,7 +31,7 @@ function startQuiz() {
     questionNumber = 0;
     paintQuestion(questionNumber);
     paintChoice(questionNumber)
-    console.log("<startQuiz");
+    // console.log("<startQuiz");
 
 };
 
@@ -127,26 +130,46 @@ var qArr =
     ]
 
 function paintQuestion(qnum) {
-    console.log(qArr[qnum].question);
+    // console.log(qArr[qnum].question);
     $("#ptrivia").empty();
     $("#ptrivia").append(qArr[qnum].question)
 }
 
 function paintChoice(qnum) {
     var choices = qArr[qnum].choices
-    console.log(choices);
+    // console.log(choices);
     for (var i = 0; i < choices.length; i++) {
         var choice = choices[i];
         var pChoice = $("<p>").html(choice);
         $("#ptrivia").append(pChoice);
-        $(".butn1").click(choice);
-        /*var buttonChoice= $('<input/>').attr({ type: 'button', name:'btn1', value:'a button' });
-        $("#ptrivia").append(buttonChoice);*/
+        var buttonChoice = $('<button/>').attr({ type: 'button', class: 'btn1', value: i });
+        var answerChoice = ["A", "B", "C", "D"];
+        buttonChoice.text(answerChoice[i]);
+        $("#ptrivia").append(buttonChoice);
+
     }
+    $(".btn1").on("click", function () {
+        //console.log ($(this).val())
+        if (qArr[qnum].answer == $(this).val()) {
+            correct++;
+        }
+        else {
+            incorrect++;
+        }
+        console.log(correct, incorrect)
+        nextQuestion()
+        if
+            (qArr[qnum].answer > qArr.length) {
+            endGame()
+        }
+
+    });
 }
 
-function paintAnswer() {
-
+function endGame() {
+    $("#ptrivia").empty();
+    $("#ptrivia").html("<h2>Correct: </h2>");
+    $("ptrivia").text(correct);
 }
 
 
